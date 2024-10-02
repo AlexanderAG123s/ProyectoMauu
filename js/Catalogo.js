@@ -95,13 +95,13 @@ $(document).ready(function (){
                             <td>${usuario.nombre}</td>
                             <td>${usuario.clave}</td>
                             `
-                            if(usuario.estado === 0) {
+                            if(usuario.estado === 1) {
                               template += `
                                 <td>Activo</td>
                               `;
                             }
 
-                            if(usuario.estado === 1) {
+                            if(usuario.estado === 0) {
                               template += `
                                 <td>Inactivo</td>
                               `;
@@ -115,13 +115,13 @@ $(document).ready(function (){
 
                             `
                             
-                            if(usuario.estado === 0) {
+                            if(usuario.estado === 1) {
                               template +=
                               `
                               <button type="button" data-id="${usuario.id}" class="edit btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#edit-user"><i class="fas fa-pencil"></i></button>
                               <button class="delete btn btn-outline-danger ml-2"><i class="fas fa-trash-can"></i></button>`
                             }
-                            if(usuario.estado === 1){
+                            if(usuario.estado === 0){
                               template +=
                               `<button class="update btn btn-outline-success"><i class="fas fa-check"></i></button>`;
                             }
