@@ -7,25 +7,29 @@ include_once 'conexion.php';
             $this->acceso = $db->pdo;
 
         }
-        function Loguearse ($clave, $pass) {
-            $sql = "SELECT * FROM usuarios inner join tipos on tipo = id where clave = :clave and password = :pass";
+        function Loguearse($clave, $pass) {
+            // Hashear la contraseña
+            $hashed_pass = md5($pass);
+            $sql = "SELECT * FROM usuarios INNER JOIN tipos ON tipo = id WHERE clave = :clave AND password = :pass";
             $query = $this->acceso->prepare($sql);
-            $query->execute(array(':clave' => $clave, ':pass' => $pass));
-            $this->objetos = $query->fetchall();
+            $query->execute(array(':clave' => $clave, ':pass' => $hashed_pass));
+            $this->objetos = $query->fetchAll();
             return $this->objetos;
         }
         function crear_usuario($nombre, $clave, $estado, $pass, $tipo) {
-            $sql = "SELECT id_usuario FROM usuarios where clave =:clave";
+            // Hashear la contraseña
+            $hashed_pass = md5($pass);
+            $sql = "SELECT id_usuario FROM usuarios WHERE clave = :clave";
             $query = $this->acceso->prepare($sql);
             $query->execute(array(':clave' => $clave));
-            $this->objetos=$query->fetchall();
-
-            if(!empty($this->objetos)) {
+            $this->objetos = $query->fetchAll();
+    
+            if (!empty($this->objetos)) {
                 echo 'noadd';
             } else {
                 $sql = "INSERT INTO usuarios (nombre, clave, password, estado, tipo) VALUES (:nombre, :clave, :pass, :estado, :tipo)";
                 $query = $this->acceso->prepare($sql);
-                $query->execute(array(':nombre' => $nombre, ':clave' => $clave, ':estado' => $estado, ':pass' => $pass, ':tipo' =>$tipo));
+                $query->execute(array(':nombre' => $nombre, ':clave' => $clave, ':estado' => $estado, ':pass' => $hashed_pass, ':tipo' => $tipo));
                 echo 'add';
             }
         }
@@ -52,9 +56,11 @@ include_once 'conexion.php';
             return $this->objetos;
         }
         function editar_usuario($id_usuario, $nombre, $clave, $pass, $tipo) {
-            $sql = "UPDATE usuarios SET nombre = :nombre, clave = :clave, password = :pass, tipo = :tipo  where id_usuario = :id_usuario";
+            // Hashear la contraseña
+            $hashed_pass = md5($pass);
+            $sql = "UPDATE usuarios SET nombre = :nombre, clave = :clave, password = :pass, tipo = :tipo WHERE id_usuario = :id_usuario";
             $query = $this->acceso->prepare($sql);
-            $query->execute(array(':id_usuario' => $id_usuario, ':nombre' => $nombre, ':clave' => $clave, ':pass' => $pass, ':tipo' => $tipo));
+            $query->execute(array(':id_usuario' => $id_usuario, ':nombre' => $nombre, ':clave' => $clave, ':pass' => $hashed_pass, ':tipo' => $tipo));
             echo 'editado';
         }
         function eliminar_usuario($id_usuario, $activo) {
@@ -69,11 +75,13 @@ include_once 'conexion.php';
             $query->execute(array( ':estado' => $activo ,':id_usuario' => $id_usuario));
             echo 'update';
         }
-        function obtener_tipo ($clave, $pass) {
-            $sql = "SELECT * FROM usuarios where clave = :clave and password = :pass";
+        function obtener_tipo($clave, $pass) {
+            // Hashear la contraseña
+            $hashed_pass = md5($pass);
+            $sql = "SELECT * FROM usuarios WHERE clave = :clave AND password = :pass";
             $query = $this->acceso->prepare($sql);
-            $query->execute(array(':clave' => $clave, ':pass' => $pass));
-            $this->objetos = $query->fetchall();
+            $query->execute(array(':clave' => $clave, ':pass' => $hashed_pass));
+            $this->objetos = $query->fetchAll();
             return $this->objetos;
         }
     }
