@@ -118,7 +118,7 @@ if (strlen($response3) > 18) {
    
 
 
-   $pdf->Image('../img/waos.png', 0, 25, 210, 200);
+   $pdf->Image('../img/waos.png', 0, 25, 210, 145);
    
    $pdf->Output('examen.pdf', 'I'); // Save the PDF to a file on the server
    echo '../PDF/Output/'.$_POST['funcion'].'.pdf'; // Return the URL to the PDF file
