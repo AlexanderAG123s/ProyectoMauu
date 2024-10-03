@@ -20,6 +20,8 @@ if ($_POST['funcion'] == 'rellenar_check') {
 if ($_POST['funcion'] == 'generar_examen') {
     session_start();
     $examen->generar_pdf();
+    $examen->rellenar_check();
+    
     
     
        // Asigna el resto de las variables de manera similar para las demás tablas
@@ -50,10 +52,13 @@ if ($_POST['funcion'] == 'generar_examen') {
     
     $pdf->SetFont('Arial', 'B', 11);
     $pdf->Ln(5); // Salto de línea
+
+    foreach ($examen->objetos as $objeto) {
     
     // Título del examen
-    $pdf->Cell(0, 10, 'Examen de Fisica', 0, 1, 'C');
+    $pdf->Cell(0, 10, 'Examen de '. utf8_decode($objeto->asignatura), 0, 1, 'C');
     $pdf->Ln(0);
+    }
     
     // Datos del examen
     $pdf->SetFont('Arial', '', 12, '', true); // Add the fifth parameter as true to enable UTF-8

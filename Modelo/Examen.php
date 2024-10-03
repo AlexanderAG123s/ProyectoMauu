@@ -87,4 +87,12 @@ $sql .= ") ORDER BY RAND() LIMIT 25"; // adjust the limit to the desired number 
                 return $this->objetos;
             }
         }
-    }
+
+    //     function obtener_materia() {
+    //         $sql = "SELECT * FROM asginaturas WHERE id = :id";
+    //         $query = $this->acceso->prepare($sql);
+    //         $query->execute(array(':id'=>$_POST['id']));
+    //         $this->objetos=$query->fetch();
+    //         return $this->objetos;
+    //     }
+ }
