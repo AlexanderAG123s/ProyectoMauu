@@ -7,11 +7,8 @@ $(document).ready(function () {
 
     funcion = "Loguearse";
 
-    
     $.post("controlador/LoginController.php", {funcion, clave, pass}, (response) => {
       console.log(response);
-      funcion = 'obtener_tipo';
-
      
         if(clave === '' || pass === '') {
           Swal.fire({
@@ -21,19 +18,17 @@ $(document).ready(function () {
             footer: '<a href="#">Contacta con un Administrador</a>'
           });
         } else if(response == "login") {
-          
-          
-          
-          $.post("controlador/UsuarioController.php", {funcion, clave, pass}, (response) =>{
-            console.log(response);
-            const tipos = JSON.parse(response);
 
-            console.log(tipos.estado);
-            
-            
-            if(tipos.estado === 1) {
+          funcion = 'obtener_tipo';
+
+          
+              $.post("controlador/UsuarioController.php", {funcion, clave, pass}, (response) =>{
+                console.log(response);
+                
+                  const tipos = JSON.parse(response);
                   $('#id_usuario').val(tipos.us_tipo);
 
+                  if(tipos.estado === 1) {
                     Swal.fire({
                       icon: "success",
                       title: "Exito!",

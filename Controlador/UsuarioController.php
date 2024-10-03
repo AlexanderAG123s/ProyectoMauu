@@ -88,7 +88,8 @@ if($_POST['funcion'] == 'obtener_tipo') {
     foreach ($usuario->objetos as $objeto) {
         $json[] = array(
             'us_tipo' => $objeto->tipo,
-            'nombre' => $objeto->nombre
+            'nombre' => $objeto->nombre,
+            'estado' => $objeto->estado
         );
     }
     $jsonstring = json_encode($json[0]);
