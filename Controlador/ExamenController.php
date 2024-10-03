@@ -113,6 +113,7 @@ if (strlen($response3) > 18) {
    }
 
    $pdf->AddPage();
+   $pdf->Ln(0.5);
 
 
 
