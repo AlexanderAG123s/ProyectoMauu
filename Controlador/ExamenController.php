@@ -89,7 +89,7 @@ if ($_POST['funcion'] == 'generar_examen') {
        $pdf->SetFont('Arial', '', 12, '', true); // Add the fifth parameter as true to enable UTF-8
 // Print the first response
 $response1 = $option1.'.- '.$objeto->respuesta_f;
-if (strlen($response1) > 15) {
+if (strlen($response1) > 18) {
     $pdf->MultiCell(0, 10, $response1, 0, 'L');
 } else {
     $pdf->Cell(30, 10, $response1, 0, 0, 'L');
@@ -97,7 +97,7 @@ if (strlen($response1) > 15) {
 
 // Print the second response
 $response2 = $option2.'.- '.$objeto->respuesta_f2;
-if (strlen($response2) > 15) {
+if (strlen($response2) > 18) {
     $pdf->MultiCell(0, 10, $response2, 0, 'L');
 } else {
     $pdf->Cell(30, 10, $response2, 0, 0, 'L');
@@ -105,7 +105,7 @@ if (strlen($response2) > 15) {
 
 // Print the third response
 $response3 = $option3.'.- '.$objeto->respuesta_c;
-if (strlen($response3) > 15) {
+if (strlen($response3) > 18) {
     $pdf->MultiCell(0, 10, $response3, 0, 'L');
 } else {
     $pdf->Cell(30, 10, $response3, 0, 1, 'L');
