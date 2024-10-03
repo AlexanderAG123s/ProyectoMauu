@@ -90,25 +90,25 @@ if ($_POST['funcion'] == 'generar_examen') {
 // Print the first response
 $response1 = $option1.'.- '.$objeto->respuesta_f;
 if (strlen($response1) > 18) {
-    $pdf->MultiCell(0, 10, $response1, 0, 'L');
+    $pdf->MultiCell(0, 10, utf8_decode($response1), 0, 'L');
 } else {
-    $pdf->Cell(30, 10, $response1, 0, 0, 'L');
+    $pdf->Cell(30, 10, utf8_decode($response1), 0, 0, 'L');
 }
 
 // Print the second response
 $response2 = $option2.'.- '.$objeto->respuesta_f2;
 if (strlen($response2) > 18) {
-    $pdf->MultiCell(0, 10, $response2, 0, 'L');
+    $pdf->MultiCell(0, 10, utf8_decode($response2), 0, 'L');
 } else {
-    $pdf->Cell(30, 10, $response2, 0, 0, 'L');
+    $pdf->Cell(30, 10, utf8_decode($response2), 0, 0, 'L');
 }
 
 // Print the third response
 $response3 = $option3.'.- '.$objeto->respuesta_c;
 if (strlen($response3) > 18) {
-    $pdf->MultiCell(0, 10, $response3, 0, 'L');
+    $pdf->MultiCell(0, 10, utf8_decode($response3), 0, 'L');
 } else {
-    $pdf->Cell(30, 10, $response3, 0, 1, 'L');
+    $pdf->Cell(30, 10, utf8_decode($response3), 0, 1, 'L');
 }
    }
 
