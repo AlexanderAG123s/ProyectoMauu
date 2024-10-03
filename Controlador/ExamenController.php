@@ -60,22 +60,22 @@ if ($_POST['funcion'] == 'generar_examen') {
     $pdf->Cell(0, 10, 'Fecha: _______________', 0, 1);
     $pdf->Ln(5);
     
+    $pdf->Cell(0, 10, 'Examen de '. utf8_decode($objetos->asignatura), 0, 1, 'C');
+    $pdf->Ln(0);
+    
+    
+    // Instrucciones
+    $pdf->SetFont('Arial', 'I', 12);
+    $pdf->MultiCell(0, 10, 'Instrucciones: ');
+    $pdf->SetFont('Arial', 'U', 12);
+    $pdf->MultiCell(0, 10, utf8_decode( 'Instrucciones generales: Conesta el examen en hojas que deberán llevar tu nombre complejo cada una de las que utilices para contestar el examen'));
+    $pdf->Ln(5);
+    
+    $i = 0;
+    $p = 0;
+    $abc = ['A', 'B', 'C'];
+    
     foreach ($examen->objetos as $objeto) {
-        $pdf->Cell(0, 10, 'Examen de '. utf8_decode($objetos->asignatura), 0, 1, 'C');
-        $pdf->Ln(0);
-        
-        
-   // Instrucciones
-   $pdf->SetFont('Arial', 'I', 12);
-   $pdf->MultiCell(0, 10, 'Instrucciones: ');
-   $pdf->SetFont('Arial', 'U', 12);
-   $pdf->MultiCell(0, 10, utf8_decode( 'Instrucciones generales: Conesta el examen en hojas que deberán llevar tu nombre complejo cada una de las que utilices para contestar el examen'));
-   $pdf->Ln(5);
-
-   $i = 0;
-   $p = 0;
-   $abc = ['A', 'B', 'C'];
-
        $i++;
        $options = $abc; // Reset the array for each question
        $option1 = array_shift($options);
