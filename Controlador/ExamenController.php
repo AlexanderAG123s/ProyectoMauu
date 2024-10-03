@@ -119,7 +119,7 @@ if (strlen($response3) > 18) {
 
 if ($_POST['funcion'] == 'generar_examen_r') {
     session_start();
-    $examen->generar_pdf();
+    $examen->generar_pdf_r();
     
     
        // Asigna el resto de las variables de manera similar para las demás tablas
