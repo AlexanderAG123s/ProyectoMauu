@@ -117,7 +117,7 @@ if (strlen($response3) > 18) {
    
    
    $pdf->SetFont('Arial', 'B', 12, '', true); // Add the fifth parameter as true to enable UTF-8
-   $pdf->Ln(2);
+   $pdf->Ln(5);
    $pdf->MultiCell(200, 10,'Hoja de Respuestas' , 0, 'C'); // Use MultiCell with a width of 0, which means the cell will take up the full width of the page
    $pdf->Ln(0.2); // Add a small line break between questions
    
