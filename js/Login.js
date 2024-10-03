@@ -19,15 +19,14 @@ $(document).ready(function () {
           });
         } else if(response == "login") {
           
-          if(tipos.estado === 1) {
           funcion = 'obtener_tipo';
-
           
           
           $.post("controlador/UsuarioController.php", {funcion, clave, pass}, (response) =>{
             console.log(response);
             
-            const tipos = JSON.parse(response);
+            if(tipos.estado === 1) {
+                  const tipos = JSON.parse(response);
                   $('#id_usuario').val(tipos.us_tipo);
 
                     Swal.fire({
@@ -42,17 +41,8 @@ $(document).ready(function () {
                         if(tipos.us_tipo === 2) {
                           window.location.href = "vistas/adm_inicio.php";
                         }
-
-                        
-                        
-                        
-                      });
                       
-                      
-                      
-                      
-                    }) 
-                    
+                    });
                   } else if(tipos.estado === 0){
                     Swal.fire({
                       icon: "error",
@@ -62,7 +52,8 @@ $(document).ready(function () {
                     });
                   }
                   
-            
+                  
+              })
 
           
           
