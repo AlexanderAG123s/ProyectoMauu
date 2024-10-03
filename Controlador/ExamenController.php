@@ -48,8 +48,7 @@ if ($_POST['funcion'] == 'generar_examen') {
     // Añadir las imágenes (ajustar la ruta de las imágenes según sea necesario)
     // $pdf->Image('../img/headers.jpeg', 10, 10, 190);
     
-    $pdf->SetFont('Arial', '', 12, '', true); // Establece la fuente y el tamaño de letra
-    $pdf->SetLineHeight(1.2); // Establece la altura de línea
+    $pdf->SetFont('Arial', 'B', 11);
     $pdf->Ln(5); // Salto de línea
     
     // Título del examen
@@ -87,16 +86,13 @@ if ($_POST['funcion'] == 'generar_examen') {
        $pdf->MultiCell(200, 10, $i.'.- '. utf8_decode($objeto->question), 0, 'L'); // Use MultiCell with a width of 0, which means the cell will take up the full width of the page
        $pdf->Ln(1); // Add a small line break between questions
        $pdf->SetFont('Arial', '', 12, '', true); // Add the fifth parameter as true to enable UTF-8
-       $pdf->MultiCell(0, 8, $i.'.- '. utf8_decode($objeto->question), 0, 'L');
-       $pdf->Ln(3); // Agrega un salto de línea de 3 unidades
-       
-       $pdf->MultiCell(0, 8, utf8_decode($option1.'.- '.$objeto->respuesta_f), 0, 'L');
-       $pdf->Ln(3); // Agrega un salto de línea de 3 unidades
-   
-       $pdf->MultiCell(0, 8, $option2.'.- '.$objeto->respuesta_f2, 0, 'L');
+       $pdf->MultiCell(0, 10, utf8_decode($option1.'.- '.$objeto->respuesta_f), 0, 'L');
        $pdf->Ln(1);
    
-       $pdf->MultiCell(0, 8, $option3.'.- '.$objeto->respuesta_c, 0, 'L');
+       $pdf->MultiCell(0, 10, $option2.'.- '.$objeto->respuesta_f2, 0, 'L');
+       $pdf->Ln(1);
+   
+       $pdf->MultiCell(0, 10, $option3.'.- '.$objeto->respuesta_c, 0, 'L');
        $pdf->Ln(1); // Add a larger line break between questions
    }
    
@@ -160,11 +156,8 @@ if ($_POST['funcion'] == 'generar_examen_r') {
        $pdf->MultiCell(0, 10, $i.'.- '. utf8_decode($objeto->question), 0, 'L'); // Use MultiCell with a width of 0, which means the cell will take up the full width of the page
        $pdf->Ln(5); // Add a small line break between questions
        $pdf->SetFont('Arial', '', 12, '', true); // Add the fifth parameter as true to enable UTF-8
-$pdf->MultiCell(0, 10, $i.'.- '. utf8_decode($objeto->question), 0, 'L');
-$pdf->Ln(3); // Agrega un salto de línea de 3 unidades
-
-$pdf->MultiCell(0, 10, utf8_decode($option1.'.- '.$objeto->respuesta_f), 0, 'L');
-$pdf->Ln(3); // Agrega un salto de línea de 3 unidades
+       $pdf->MultiCell(0, 10, utf8_decode($option1.'.- '.$objeto->respuesta_f), 0, 'L');
+       $pdf->Ln(5);
    
        $pdf->MultiCell(0, 10, $option2.'.- '.$objeto->respuesta_f2, 0, 'L');
        $pdf->Ln(5);
