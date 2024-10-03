@@ -27,6 +27,9 @@ $(document).ready(function () {
           $.post("controlador/UsuarioController.php", {funcion, clave, pass}, (response) =>{
             console.log(response);
             const tipos = JSON.parse(response);
+
+            console.log(tipos.estado);
+            
             
             if(tipos.estado === 1) {
                   $('#id_usuario').val(tipos.us_tipo);
