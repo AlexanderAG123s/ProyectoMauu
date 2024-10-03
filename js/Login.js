@@ -7,8 +7,11 @@ $(document).ready(function () {
 
     funcion = "Loguearse";
 
+    
     $.post("controlador/LoginController.php", {funcion, clave, pass}, (response) => {
       console.log(response);
+      funcion = 'obtener_tipo';
+
      
         if(clave === '' || pass === '') {
           Swal.fire({
@@ -19,14 +22,13 @@ $(document).ready(function () {
           });
         } else if(response == "login") {
           
-          funcion = 'obtener_tipo';
           
           
           $.post("controlador/UsuarioController.php", {funcion, clave, pass}, (response) =>{
             console.log(response);
+            const tipos = JSON.parse(response);
             
             if(tipos.estado === 1) {
-                  const tipos = JSON.parse(response);
                   $('#id_usuario').val(tipos.us_tipo);
 
                     Swal.fire({
