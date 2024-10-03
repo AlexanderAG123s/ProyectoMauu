@@ -36,7 +36,7 @@ include_once 'conexion.php';
                 ORDER BY RAND()
                 LIMIT 25"; // adjust the limit to the desired number of random preguntas
                 $query = $this->acceso->prepare($sql);
-                $query->execute(array(':consulta' =>"%$consulta%", ':parcial' => "%$parcial%", ':temas' => "%$checkedDataIds%"));
+                $query->execute(array(':consulta' => "%$consulta%", ':parcial' => "%$parcial%", ':temas' => implode(',', $checkedDataIds)));
                 $this->objetos=$query->fetchall();
                 return $this->objetos;
             } else {
