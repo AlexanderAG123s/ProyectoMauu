@@ -130,6 +130,7 @@ if ($_POST['funcion'] == 'generar_examen_r') {
     $examen->generar_pdf_r();
     
     
+    
        // Asigna el resto de las variables de manera similar para las demás tablas
        class PDF extends FPDF
        {
@@ -160,9 +161,6 @@ if ($_POST['funcion'] == 'generar_examen_r') {
     $pdf->Ln(5); // Salto de línea
     
     // Título del examen
-    // $pdf->Cell(0, 10, 'Examen de Fisica', 0, 1, 'C');
-    // $pdf->Ln(0);
-    
     // Datos del examen
     $pdf->SetFont('Arial', '', 12, '', true); // Add the fifth parameter as true to enable UTF-8
     $pdf->Cell(0, 10, 'Alumno: ________________________________________________' , 0, 1);
@@ -170,20 +168,23 @@ if ($_POST['funcion'] == 'generar_examen_r') {
     
     $pdf->Cell(0, 10, 'Fecha: _______________', 0, 1);
     $pdf->Ln(5);
-
-   
-   // Instrucciones
-   $pdf->SetFont('Arial', 'I', 12);
-   $pdf->MultiCell(0, 10, 'Instrucciones: ');
-   $pdf->SetFont('Arial', 'U', 12);
-   $pdf->MultiCell(0, 10, utf8_decode( 'Instrucciones generales: Conesta el examen en hojas que deberán llevar tu nombre complejo cada una de las que utilices para contestar el examen'));
-   $pdf->Ln(5);
-
-   $i = 0;
-   $p = 0;
-   $abc = ['A', 'B', 'C'];
-
-   foreach ($examen->objetos as $objeto) {
+    
+    // $pdf->Cell(0, 10, 'Examen de ', 0, 1, 'C');
+    // $pdf->Ln(0);
+    
+    
+    // Instrucciones
+    $pdf->SetFont('Arial', 'I', 12);
+    $pdf->MultiCell(0, 10, 'Instrucciones: ');
+    $pdf->SetFont('Arial', 'U', 12);
+    $pdf->MultiCell(0, 10, utf8_decode( 'Instrucciones generales: Conesta el examen en hojas que deberán llevar tu nombre complejo cada una de las que utilices para contestar el examen'));
+    $pdf->Ln(5);
+    
+    $i = 0;
+    $p = 0;
+    $abc = ['A', 'B', 'C'];
+    
+    foreach ($examen->objetos as $objeto) {
        $i++;
        $options = $abc; // Reset the array for each question
        $option1 = array_shift($options);
@@ -198,37 +199,39 @@ if ($_POST['funcion'] == 'generar_examen_r') {
 // Print the first response
 $response1 = $option1.'.- '.$objeto->respuesta_f;
 if (strlen($response1) > 18) {
-    $pdf->MultiCell(0, 10, $response1, 0, 'L');
+    $pdf->MultiCell(0, 10, utf8_decode($response1), 0, 'L');
 } else {
-    $pdf->Cell(30, 10, $response1, 0, 0, 'L');
+    $pdf->Cell(30, 10, utf8_decode($response1), 0, 0, 'L');
 }
 
 // Print the second response
 $response2 = $option2.'.- '.$objeto->respuesta_f2;
 if (strlen($response2) > 18) {
-    $pdf->MultiCell(0, 10, $response2, 0, 'L');
+    $pdf->MultiCell(0, 10, utf8_decode($response2), 0, 'L');
 } else {
-    $pdf->Cell(30, 10, $response2, 0, 0, 'L');
+    $pdf->Cell(30, 10, utf8_decode($response2), 0, 0, 'L');
 }
 
 // Print the third response
 $response3 = $option3.'.- '.$objeto->respuesta_c;
 if (strlen($response3) > 18) {
-    $pdf->MultiCell(0, 10, $response3, 0, 'L');
+    $pdf->MultiCell(0, 10, utf8_decode($response3), 0, 'L');
 } else {
-    $pdf->Cell(30, 10, $response3, 0, 1, 'L');
+    $pdf->Cell(30, 10, utf8_decode($response3), 0, 1, 'L');
 }
    }
+
    $pdf->AddPage();
+   
+   
+   
 
 
-
-   $pdf->SetFont('Arial', 'B', 12, '', true); // Add the fifth parameter as true to enable UTF-8
-   $pdf->MultiCell(200, 10,'Hoja de Respuestas' , 0, 'C'); // Use MultiCell with a width of 0, which means the cell will take up the full width of the page
-   $pdf->Ln(0.2); // Add a small line break between questions
+   $pdf->Image('../img/waos.png', 0, 25, 210, 145);
    
    $pdf->Output('examen.pdf', 'I'); // Save the PDF to a file on the server
    echo '../PDF/Output/'.$_POST['funcion'].'.pdf'; // Return the URL to the PDF file
+   
 }
 if($_POST['funcion']  == 'random') {
     $examen->rellenar_parcial_r();
