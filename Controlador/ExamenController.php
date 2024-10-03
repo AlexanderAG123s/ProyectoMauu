@@ -87,9 +87,29 @@ if ($_POST['funcion'] == 'generar_examen') {
        $pdf->Ln(0.2); // Add a small line break between questions
        $pdf->SetFont('Arial', '', 10, '', true); // Add the fifth parameter as true to enable UTF-8
        $pdf->SetFont('Arial', '', 12, '', true); // Add the fifth parameter as true to enable UTF-8
-       $pdf->Cell(65, 10, $option1.'.- '.$objeto->respuesta_f, 0, 0, 'L'); // Imprime la primera respuesta
-       $pdf->Cell(65, 10, $option2.'.- '.$objeto->respuesta_f2, 0, 0, 'L'); // Imprime la segunda respuesta
-       $pdf->Cell(65, 10, $option3.'.- '.$objeto->respuesta_c, 0, 1, 'L'); // Imprime la tercera respuesta y avanza a la siguiente línea
+// Print the first response
+$response1 = $option1.'.- '.$objeto->respuesta_f;
+if (strlen($response1) > 30) {
+    $pdf->MultiCell(0, 10, $response1, 0, 'L');
+} else {
+    $pdf->Cell(30, 10, $response1, 0, 0, 'L');
+}
+
+// Print the second response
+$response2 = $option2.'.- '.$objeto->respuesta_f2;
+if (strlen($response2) > 30) {
+    $pdf->MultiCell(0, 10, $response2, 0, 'L');
+} else {
+    $pdf->Cell(30, 10, $response2, 0, 0, 'L');
+}
+
+// Print the third response
+$response3 = $option3.'.- '.$objeto->respuesta_c;
+if (strlen($response3) > 30) {
+    $pdf->MultiCell(0, 10, $response3, 0, 'L');
+} else {
+    $pdf->Cell(30, 10, $response3, 0, 1, 'L');
+}
    }
    
    $pdf->Output('examen.pdf', 'I'); // Save the PDF to a file on the server
