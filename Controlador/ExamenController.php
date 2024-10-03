@@ -56,7 +56,7 @@ if ($_POST['funcion'] == 'generar_examen') {
 
     
     // Título del examen
-    $pdf->Cell(0, 10, 'Examen de '. utf8_decode($objeto->asignatura), 0, 1, 'C');
+    $pdf->Cell(0, 10, 'Examen de ', 0, 1, 'C');
     $pdf->Ln(0);
     
     // Datos del examen
