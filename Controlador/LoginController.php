@@ -13,6 +13,7 @@ if (isset($_POST['funcion']) && $_POST['funcion'] == 'Loguearse') {
                 $_SESSION['usuario'] =$objeto -> id_usuario;
                 $_SESSION['us_tipo'] =$objeto -> tipo;
                 $_SESSION['nombre'] =$objeto -> nombre;
+                $_SESSION['estado'] = $objeto-> estado;
                 
             }
             echo 'login';
