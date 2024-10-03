@@ -70,13 +70,13 @@ if ($_POST['funcion'] == 'editar_usuario') {
 
 if ($_POST['funcion'] == 'eliminar_usuario') {
     $id_usuario = $_POST['id'];
-    $activo = 1;
+    $activo = 0;
     $usuario->eliminar_usuario($id_usuario, $activo);
 }
 
 if ($_POST['funcion'] == 'habilitar_usuario') {
     $id_usuario = $_POST['id'];
-    $activo = 0;
+    $activo = 1;
     $usuario->habilitar($id_usuario, $activo);
 }
 
