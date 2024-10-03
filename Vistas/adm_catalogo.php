@@ -1,7 +1,7 @@
 <?php
     session_start();
      if($_SESSION['us_tipo'] === 1) {
-         if($_SESSION['estado'] === 1){    
+        //  if($_SESSION['estado'] === 1){    
             include_once 'layouts/header.php';
 ?>
 <?php
@@ -193,6 +193,6 @@ include_once 'layouts/footer.php';
   <script src="../js/Catalogo.js"></script>
 
 <?php 
-         }
+        //  }
      }
 ?>
