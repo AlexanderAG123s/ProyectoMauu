@@ -32,9 +32,9 @@ if ($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) {
                                 <input id="question" type="text" class="form-control" placeholder="Pregunta" requiered>
                             </div>
                             <div class="mb-3">
-  <label for="formFileSm" class="form-label">Small file input example</label>
-  <input class="form-control form-control-sm" id="formFileSm" type="file">
-</div>
+                                <label for="formFileSm" class="form-label">Small file input example</label>
+                                <input class="form-control form-control-sm" id="formFileSm" type="file">
+                            </div>
                             <div class="form-group">
                                 <label for="answer_f1">Respuesta 1: </label>
                                 <input id="answer_f1" type="text" class="form-control" placeholder="Respuesta 1" requiered>

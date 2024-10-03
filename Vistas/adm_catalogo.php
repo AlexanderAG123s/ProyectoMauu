@@ -1,7 +1,8 @@
 <?php
-     session_start();
-     if($_SESSION['us_tipo'] == 1) {
-        include_once 'layouts/header.php';
+    session_start();
+     if($_SESSION['us_tipo'] === 1) {
+         if($_SESSION['estado'] === 1){    
+            include_once 'layouts/header.php';
 ?>
 <?php
 include_once 'layouts/nav.php';
@@ -38,13 +39,6 @@ include_once 'layouts/nav.php';
                             <div class="form-group">
                                 <label for="password">Password: </label>
                                 <input id="password" type="password" class="form-control" placeholder="Contraseña" requiered>
-                            </div>
-                            <div class="form-group">
-                                <label for="activo">Activo: </label>
-                                <select id="activo" class="form-control" requiered> 
-                                    <option value="0">Activo</option>
-                                    <option value="1">Inactivo</option>
-                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="tipo_us">Tipo de Usuario: </label>
@@ -95,13 +89,6 @@ include_once 'layouts/nav.php';
                                 <input id="pass_e" type="text" class="form-control" placeholder="Contraseña" requiered>
                             </div>
                             <div class="form-group">
-                                <label for="activo_e">Activo: </label>
-                                <select id="activo_e" class="form-control" requiered> 
-                                    <option value="0">Activo</option>
-                                    <option value="1">Inactivo</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
                                 <label for="tipo_us_e">Tipo de Usuario: </label>
                                 <select id="tipo_us_e" style="width: 200px;" class="form-control select select2-dark" placeholder="" requiered> 
                                 </select>
@@ -129,12 +116,12 @@ include_once 'layouts/nav.php';
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Catalogo</h1>
+            <h1 class="m-0">Gestionar Usuario</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active">Catalogo</li>
+              <li class="breadcrumb-item active">Gestionar Usuario</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -206,5 +193,6 @@ include_once 'layouts/footer.php';
   <script src="../js/Catalogo.js"></script>
 
 <?php 
+         }
      }
 ?>
