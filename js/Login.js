@@ -11,6 +11,7 @@ $(document).ready(function () {
       console.log(response);
      
         if(clave === '' || pass === '') {
+          if(tipos.estado === 1) {
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -28,7 +29,6 @@ $(document).ready(function () {
                   const tipos = JSON.parse(response);
                   $('#id_usuario').val(tipos.us_tipo);
 
-                  if(tipos.estado === 1) {
                     Swal.fire({
                       icon: "success",
                       title: "Exito!",
