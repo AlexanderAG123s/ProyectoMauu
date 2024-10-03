@@ -52,9 +52,8 @@ if ($_POST['funcion'] == 'generar_examen') {
     
     $pdf->SetFont('Arial', 'B', 11);
     $pdf->Ln(5); // Salto de línea
-    
-    
-    foreach ($examen->objetos as $objeto) {
+
+
     
     // Título del examen
     $pdf->Cell(0, 10, 'Examen de '. utf8_decode($objeto->asignatura), 0, 1, 'C');
@@ -80,6 +79,7 @@ if ($_POST['funcion'] == 'generar_examen') {
    $p = 0;
    $abc = ['A', 'B', 'C'];
 
+   foreach ($examen->objetos as $objeto) {
        $i++;
        $options = $abc; // Reset the array for each question
        $option1 = array_shift($options);
