@@ -1,16 +1,16 @@
 <?php
-    session_start();
-    if($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) {
-        include_once 'layouts/header.php';
+session_start();
+if ($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) {
+    include_once 'layouts/header.php';
 ?>
-<?php
-include_once 'layouts/nav.php';
-?>
-<title>Adm | Inicio</title>
+    <?php
+    include_once 'layouts/nav.php';
+    ?>
+    <title>Adm | Inicio</title>
 
-<!-- Modal -->
+    <!-- Modal -->
 
-<div class="modal fade" id="create_user" tabindex="-1" role="dialog" aria-labelledby="exampleModall">
+    <div class="modal fade" id="create_user" tabindex="-1" role="dialog" aria-labelledby="exampleModall">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="card card-success">
@@ -31,10 +31,10 @@ include_once 'layouts/nav.php';
                                 <label for="question">Pregunta: </label>
                                 <input id="question" type="text" class="form-control" placeholder="Pregunta" requiered>
                             </div>
-                            <div class="mb-3">
-  <label for="formFile" class="form-label">Default file input example</label>
-  <input class="form-control" type="file" id="formFile">
-</div>
+                            <div class="form-group">
+                                <label for="formFile" class="form-label">Default file input example</label>
+                                <input class="form-control" type="file" id="formFile">
+                            </div>
                             <div class="form-group">
                                 <label for="answer_f1">Respuesta 1: </label>
                                 <input id="answer_f1" type="text" class="form-control" placeholder="Respuesta 1" requiered>
@@ -49,12 +49,12 @@ include_once 'layouts/nav.php';
                             </div>
                             <div class="form-group">
                                 <label for="asignaturas_q">Materia: </label>
-                                <select id="asignaturas_q" style="width: 200px;" class="form-control select select2-dark" placeholder="" requiered> 
+                                <select id="asignaturas_q" style="width: 200px;" class="form-control select select2-dark" placeholder="" requiered>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="temas_q">Tema: </label>
-                                <select id="temas_q" style="width: 200px;" class="form-control select select2-dark" placeholder="" requiered> 
+                                <select id="temas_q" style="width: 200px;" class="form-control select select2-dark" placeholder="" requiered>
                                 </select>
                             </div>
 
@@ -70,8 +70,8 @@ include_once 'layouts/nav.php';
         </div>
     </div>
 
-<!-- Editar Usuario -->
-     <div class="modal fade" id="edit-question" tabindex="-1" role="dialog" aria-labelledby="exampleModall">
+    <!-- Editar Usuario -->
+    <div class="modal fade" id="edit-question" tabindex="-1" role="dialog" aria-labelledby="exampleModall">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="card card-success">
@@ -88,7 +88,7 @@ include_once 'layouts/nav.php';
                         </div>
                         <form id="edit_question">
 
-                        <div class="form-group">
+                            <div class="form-group">
                                 <label for="question_e">Pregunta: </label>
                                 <input id="question_e" type="text" class="form-control" placeholder="Pregunta" requiered>
                             </div>
@@ -106,12 +106,12 @@ include_once 'layouts/nav.php';
                             </div>
                             <div class="form-group">
                                 <label for="asignaturas_q_e">Materia: </label>
-                                <select id="asignaturas_q_e" style="width: 200px;" class="form-control select select2-dark" placeholder="" requiered> 
+                                <select id="asignaturas_q_e" style="width: 200px;" class="form-control select select2-dark" placeholder="" requiered>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="temas_q_e">Materia: </label>
-                                <select id="temas_q_e" style="width: 200px;" class="form-control select select2-dark" placeholder="" requiered> 
+                                <select id="temas_q_e" style="width: 200px;" class="form-control select select2-dark" placeholder="" requiered>
                                 </select>
                             </div>
 
@@ -130,88 +130,88 @@ include_once 'layouts/nav.php';
 
 
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Catalogo</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active">Catalogo</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Catalogo</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                            <li class="breadcrumb-item active">Catalogo</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Info boxes -->
-        <div class="row">
-          <div class="col-12 col-sm-14 col-md-13">
-            <div class="card">
-                    <h5 class="card-header bg-success">Preguntas Registradas <button class="btn btn-primary ml-2" data-bs-toggle="modal" data-bs-target="#create_user"> Crear Pregunta</button></h5>
-                    <div class="card-body">
-                    <table class="table table-dark table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Pregunta</th>
-                                    <th scope="col">Respuesta Correcta</th>
-                                    <th scope="col">Tema</th>
-                                    <th scope="col">Asignatura</th>
-                                </tr>
-                            </thead>
-                            <tbody id="preguntas" class="table-active">
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Info boxes -->
+                <div class="row">
+                    <div class="col-12 col-sm-14 col-md-13">
+                        <div class="card">
+                            <h5 class="card-header bg-success">Preguntas Registradas <button class="btn btn-primary ml-2" data-bs-toggle="modal" data-bs-target="#create_user"> Crear Pregunta</button></h5>
+                            <div class="card-body">
+                                <table class="table table-dark table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Pregunta</th>
+                                            <th scope="col">Respuesta Correcta</th>
+                                            <th scope="col">Tema</th>
+                                            <th scope="col">Asignatura</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="preguntas" class="table-active">
 
-                            </tbody>
-                        </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-          </div>
-        </div>
-        <!-- /.row -->
+            <!-- /.row -->
 
-        <div class="row">
-          <div class="col-md-12">
-            
-                
-              
-                  
-                 
+            <div class="row">
+                <div class="col-md-12">
+
+
+
+
+
                 </div>
                 <!-- /.row -->
-              </div>
-              <!-- ./card-body -->
-              
-        <!-- /.row -->
+            </div>
+            <!-- ./card-body -->
 
-        
-                  
-      </div><!--/. container-fluid -->
+            <!-- /.row -->
+
+
+
+    </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+    </div>
+    <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+
+    <?php
+    include_once 'layouts/footer.php';
+    ?>
+    <script src="../js/Questions.js"></script>
 
 <?php
-include_once 'layouts/footer.php';
-?>
-  <script src="../js/Questions.js"></script>
-
-<?php 
-    }
+}
 ?>
