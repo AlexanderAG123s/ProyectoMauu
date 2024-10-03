@@ -84,16 +84,16 @@ if ($_POST['funcion'] == 'generar_examen') {
    
        $pdf->SetFont('Arial', 'B', 12, '', true); // Add the fifth parameter as true to enable UTF-8
        $pdf->MultiCell(200, 10, $i.'.- '. utf8_decode($objeto->question), 0, 'L'); // Use MultiCell with a width of 0, which means the cell will take up the full width of the page
-       $pdf->Ln(0.5); // Add a small line break between questions
+       $pdf->Ln(0.2); // Add a small line break between questions
        $pdf->SetFont('Arial', '', 12, '', true); // Add the fifth parameter as true to enable UTF-8
        $pdf->MultiCell(0, 10, utf8_decode($option1.'.- '.$objeto->respuesta_f), 0, 'L');
-       $pdf->Ln(0.5);
+       $pdf->Ln(0.2);
    
        $pdf->MultiCell(0, 10, $option2.'.- '.$objeto->respuesta_f2, 0, 'L');
-       $pdf->Ln(0.5);
+       $pdf->Ln(0.2);
    
        $pdf->MultiCell(0, 10, $option3.'.- '.$objeto->respuesta_c, 0, 'L');
-       $pdf->Ln(0.5); // Add a larger line break between questions
+       $pdf->Ln(0.2); // Add a larger line break between questions
    }
    
    $pdf->Output('examen.pdf', 'I'); // Save the PDF to a file on the server
