@@ -32,11 +32,11 @@ include_once 'conexion.php';
                 $sql= "SELECT preguntas.id, preguntas.question, preguntas.respuesta_f, preguntas.respuesta_f2, preguntas.respuesta_c, temas.titulo as nombre_tema 
                 FROM preguntas
                 JOIN temas ON preguntas.tema = temas.id
-                WHERE temas.asignatura LIKE :consulta AND temas.parcial LIKE :parcial
+                WHERE temas.asignatura LIKE :consulta AND temas.parcial LIKE :parcial AND temas.id LIKE :temas
                 ORDER BY RAND()
                 LIMIT 25"; // adjust the limit to the desired number of random preguntas
                 $query = $this->acceso->prepare($sql);
-                $query->execute(array(':consulta' =>"%$consulta%", ':parcial' => "%$parcial%"));
+                $query->execute(array(':consulta' =>"%$consulta%", ':parcial' => "%$parcial%", ':temas' => "%$checkedDataIds%"));
                 $this->objetos=$query->fetchall();
                 return $this->objetos;
             } else {
