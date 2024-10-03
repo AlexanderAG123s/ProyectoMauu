@@ -116,8 +116,8 @@ if (strlen($response3) > 18) {
 
 
 
-   $pdf->SetFont('Arial', 'B', 10, '', true); // Add the fifth parameter as true to enable UTF-8
-   $pdf->MultiCell(200, 10,'Hoja de Respuestas' , 0, 'L'); // Use MultiCell with a width of 0, which means the cell will take up the full width of the page
+   $pdf->SetFont('Arial', 'B', 12, '', true); // Add the fifth parameter as true to enable UTF-8
+   $pdf->MultiCell(200, 10,'Hoja de Respuestas' , 0, 'C'); // Use MultiCell with a width of 0, which means the cell will take up the full width of the page
    $pdf->Ln(0.2); // Add a small line break between questions
    
    $pdf->Output('examen.pdf', 'I'); // Save the PDF to a file on the server
@@ -223,8 +223,8 @@ if (strlen($response3) > 18) {
 
 
 
-   $pdf->SetFont('Arial', 'B', 10, '', true); // Add the fifth parameter as true to enable UTF-8
-   $pdf->MultiCell(200, 10,'Hoja de Respuestas' , 0, 'L'); // Use MultiCell with a width of 0, which means the cell will take up the full width of the page
+   $pdf->SetFont('Arial', 'B', 12, '', true); // Add the fifth parameter as true to enable UTF-8
+   $pdf->MultiCell(200, 10,'Hoja de Respuestas' , 0, 'C'); // Use MultiCell with a width of 0, which means the cell will take up the full width of the page
    $pdf->Ln(0.2); // Add a small line break between questions
    
    $pdf->Output('examen.pdf', 'I'); // Save the PDF to a file on the server
